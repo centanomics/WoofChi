@@ -8,6 +8,10 @@ const avgRating = {
     const avg = numRatings.reduce((x, y) => x + y) / ratings.length;
     return +avg.toFixed(2);
   },
+  avgNum: (ratings) => {
+    const avg = ratings.reduce((x, y) => x + y) / ratings.length;
+    return +avg.toFixed(2);
+  },
 };
 
 module.exports = avgRating;

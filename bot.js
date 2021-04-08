@@ -19,6 +19,7 @@ const connectDB = require('./config/db');
 
 const rate = require('./commands/rate');
 const help = require('./commands/help');
+const top = require('./commands/top');
 
 const client = new Discord.Client();
 const prefix = ']';
@@ -52,6 +53,9 @@ client.on('message', (message) => {
       return;
     case 'help':
       help.execute(message, args);
+      return;
+    case 'top':
+      top.execute(message, args);
       return;
     default:
       message.channel.send(`${command} command does not exist!`);
