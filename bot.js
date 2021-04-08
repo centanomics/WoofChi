@@ -28,6 +28,13 @@ connectDB();
 
 client.on('ready', () => {
   console.log('Bot is ready!');
+  client.user.setPresence({
+    status: 'online', //You can show online, idle....
+    game: {
+      name: ']help', //The message shown
+      type: 'PLAYING', //PLAYING: WATCHING: LISTENING: STREAMING:
+    },
+  });
 });
 
 client.on('message', (message) => {
