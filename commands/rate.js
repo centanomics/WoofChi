@@ -42,6 +42,14 @@ module.exports = {
         return;
       }
 
+      if (rating < 1 || rating > 5) {
+        throw { message: 'You must rate someone between 1 and 5.' };
+      }
+
+      if (message.author.id === ratedUser) {
+        throw { message: 'You canot rate yourself.' };
+      }
+
       if (ratedRecently.has(message.author.id + ratedUser)) {
         message.channel.send(
           'You cannot use that user just yet! Wait 1 minute.'
@@ -52,14 +60,6 @@ module.exports = {
         setTimeout(() => {
           ratedRecently.delete(message.author.id + ratedUser);
         }, 60000);
-      }
-
-      if (rating < 1 || rating > 5) {
-        throw { message: 'You must rate someone between 1 and 5.' };
-      }
-
-      if (message.author.id === ratedUser) {
-        throw { message: 'You canot rate yourself.' };
       }
 
       const newRating = new Ratings({
