@@ -12,8 +12,12 @@ app.listen(port, () => {
   console.log(`Birbit listening on port ${port}`);
 });
 
+//discord bot
+
 const Discord = require('discord.js');
 const connectDB = require('./config/db');
+
+const rate = require('./commands/rate');
 
 const client = new Discord.Client();
 const prefix = ']';
@@ -35,6 +39,9 @@ client.on('message', (message) => {
   const command = args.shift().toLowerCase();
 
   switch (command) {
+    case 'rate':
+      rate.execute(message, args);
+      return;
     default:
       message.channel.send(`${command} command does not exist!`);
       return;
