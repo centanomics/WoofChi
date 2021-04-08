@@ -16,6 +16,30 @@ module.exports = {
       rating = parseFloat(rating);
       ratedUser = message.mentions.users.first().id;
 
+      if (args.length < 2) {
+        const targetRatings = await Ratings.find(
+          {
+            guildId: message.guild.id,
+            ratedUserId: ratedUser,
+          },
+          'rating'
+        );
+        if (targetRatings.length === 0) {
+          throw { message: 'No one has rated you yet. Sad!' };
+        }
+
+        const avgRatings = avgRating.avg(targetRatings);
+        const targetUser = await message.guild.members.fetch(ratedUser);
+        message.channel.send(
+          `${
+            message.author.id === ratedUser
+              ? 'You are'
+              : targetUser.nickname + ' is'
+          } rated at ${avgRatings} stars`
+        );
+        return;
+      }
+
       if (rating < 1 || rating > 5) {
         throw { message: 'You must rate someone between 1 and 5.' };
       }

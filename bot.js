@@ -18,6 +18,7 @@ const Discord = require('discord.js');
 const connectDB = require('./config/db');
 
 const rate = require('./commands/rate');
+const help = require('./commands/help');
 
 const client = new Discord.Client();
 const prefix = ']';
@@ -27,7 +28,7 @@ client.login(process.env.DISCORD_BOT_TOKEN);
 connectDB();
 
 client.on('ready', () => {
-  console.log('Bot is ready!');
+  console.log('Woofchi is ready!');
   client.user.setPresence({
     status: 'online', //You can show online, idle....
     game: {
@@ -48,6 +49,9 @@ client.on('message', (message) => {
   switch (command) {
     case 'rate':
       rate.execute(message, args);
+      return;
+    case 'help':
+      help.execute(message, args);
       return;
     default:
       message.channel.send(`${command} command does not exist!`);
