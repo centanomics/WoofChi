@@ -2,6 +2,8 @@ const Ratings = require('../models/ratings');
 const uuid = require('uuid');
 const avgRating = require('../utils/avgRating');
 
+const ratedRecently = new Set();
+
 // @command     rate
 // @desc        rate a user
 // @access      all
@@ -38,6 +40,18 @@ module.exports = {
           } rated at ${avgRatings} stars`
         );
         return;
+      }
+
+      if (ratedRecently.has(message.author.id + ratedUser)) {
+        message.channel.send(
+          'You cannot use that user just yet! Wait 1 minute.'
+        );
+        return;
+      } else {
+        ratedRecently.add(message.author.id + ratedUser);
+        setTimeout(() => {
+          ratedRecently.delete(message.author.id + ratedUser);
+        }, 60000);
       }
 
       if (rating < 1 || rating > 5) {
