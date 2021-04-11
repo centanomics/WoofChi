@@ -36,7 +36,7 @@ module.exports = {
       }
 
       userRatings.sort((a, b) => a.avg + b.avg);
-      // console.log(userRatings);
+      console.log(userRatings);
 
       const embed = new MessageEmbed();
       embed.title = 'Top 5 Rated Users';
