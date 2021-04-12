@@ -12,7 +12,7 @@ module.exports = {
     embed.title = 'Commands';
     embed.addField(']rate <@user> <rating>', 'Rate a user between 1 and 5');
     embed.addField(']rate <@user>', "Shows a user's rating");
-    embed.addField(']top', 'Top 5 (not ready yet)');
+    embed.addField(']top', 'Top 5');
 
     message.channel.send({ embed: embed });
   },

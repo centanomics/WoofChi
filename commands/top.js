@@ -45,7 +45,6 @@ module.exports = {
         if (userRatings[i] === undefined) {
           break;
         }
-        // console.log(userRatings[i]);
         const targetUser = await message.guild.members.fetch(
           userRatings[i].user
         );
