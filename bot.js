@@ -8,6 +8,8 @@ app.get('/', (req, res) => {
   res.sendFile(path.join(__dirname + '/public/index.html'));
 });
 
+// api routes
+
 app.get('/json', (req, res) => {
   res.json({ message: 'hi' });
 });
