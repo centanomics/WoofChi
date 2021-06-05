@@ -8,16 +8,6 @@ app.get('/', (req, res) => {
   res.sendFile(path.join(__dirname + '/public/index.html'));
 });
 
-// api routes
-
-app.get('/json', (req, res) => {
-  res.json({ message: 'hi' });
-});
-
-app.listen(port, () => {
-  console.log(`Birbit listening on port ${port}`);
-});
-
 //discord bot
 
 const Discord = require('discord.js');
@@ -71,4 +61,15 @@ client.on('message', (message) => {
       message.channel.send(`${command} command does not exist!`);
       return;
   }
+});
+
+// api routes
+
+// sends back guild name
+app.get('/json', (req, res) => {
+  res.json({ message: 'hi' });
+});
+
+app.listen(port, () => {
+  console.log(`Birbit listening on port ${port}`);
 });
