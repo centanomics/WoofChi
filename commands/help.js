@@ -13,6 +13,7 @@ module.exports = {
     embed.addField(']rate <@user> <rating>', 'Rate a user between 1 and 5');
     embed.addField(']rate <@user>', "Shows a user's rating");
     embed.addField(']top', 'Top 5');
+    embed.addField(']boards', 'Links site that has stats and other things');
 
     message.channel.send({ embed: embed });
   },

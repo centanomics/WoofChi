@@ -1,18 +1,14 @@
-// @command     help
+// @command     boards
 // @desc        gets commands
 // @access      all
 module.exports = {
-  name: 'help',
-  description: 'gets commands',
+  name: 'boards',
+  description: 'links stats site',
   delay: 5000,
   mod: false,
   execute: (message, args) => {
-    const embed = new MessageEmbed();
-    embed.title = 'Commands';
-    embed.addField(']rate <@user> <rating>', 'Rate a user between 1 and 5');
-    embed.addField(']rate <@user>', "Shows a user's rating");
-    embed.addField(']top', 'Top 5');
-
-    message.channel.send({ embed: embed });
+    message.channel.send(
+      `See stats here: https://woofchi.dev/${message.guild.id}`
+    );
   },
 };
