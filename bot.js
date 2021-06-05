@@ -2,7 +2,10 @@ require('dotenv').config();
 const express = require('express');
 const path = require('path');
 const app = express();
-const port = 3000;
+const port = 4000;
+const cors = require('cors');
+
+app.use(cors());
 
 app.get('/', (req, res) => {
   res.sendFile(path.join(__dirname + '/public/index.html'));
@@ -66,8 +69,9 @@ client.on('message', (message) => {
 // api routes
 
 // sends back guild name
-app.get('/json', (req, res) => {
-  res.json({ message: 'hi' });
+app.get('/json/:guildId', async (req, res) => {
+  let guild = await client.guilds.fetch(req.params.guildId);
+  res.send(guild.name);
 });
 
 app.listen(port, () => {
