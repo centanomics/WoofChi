@@ -8,7 +8,7 @@ module.exports = {
   mod: false,
   execute: (message, args) => {
     message.channel.send(
-      `See stats here: https://woofchi.dev/guild?g=${message.guild.id}`
+      `See stats here: http://localhost:3000/guild?g=${message.guild.id}`
     );
   },
 };

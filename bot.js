@@ -6,6 +6,7 @@ const port = 4000;
 const cors = require('cors');
 
 app.use(cors());
+app.use(express.json());
 
 app.get('/', (req, res) => {
   res.sendFile(path.join(__dirname + '/public/index.html'));
@@ -21,6 +22,15 @@ const help = require('./commands/help');
 const top = require('./commands/top');
 const boards = require('./commands/boards');
 
+const intents = [
+  'GUILDS',
+  'GUILD_MEMBERS',
+  'GUILD_BANS',
+  'GUILD_INVITES',
+  'GUILD_MESSAGES',
+  'GUILD_MESSAGE_REACTIONS',
+];
+
 const client = new Discord.Client();
 const prefix = ']';
 
@@ -32,7 +42,7 @@ client.on('ready', () => {
   console.log('Woofchi is ready!');
   client.user.setPresence({
     status: 'online', //You can show online, idle....
-    game: {
+    activity: {
       name: ']help', //The message shown
       type: 'PLAYING', //PLAYING: WATCHING: LISTENING: STREAMING:
     },
@@ -71,7 +81,7 @@ client.on('message', (message) => {
 // sends back guild name
 app.get('/json/:guildId', async (req, res) => {
   let guild = await client.guilds.fetch(req.params.guildId);
-  res.send(guild.name);
+  res.json({ guildName: guild.name });
 });
 
 app.listen(port, () => {
