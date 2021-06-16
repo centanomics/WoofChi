@@ -34,9 +34,7 @@ module.exports = {
       for (let i = 0; i < userRatings.length; i++) {
         userRatings[i].avg = avgRating.avgNum(userRatings[i].ratings);
       }
-
-      userRatings.sort((a, b) => a.avg + b.avg);
-      console.log(userRatings);
+      userRatings.sort((a, b) => (a.avg > b.avg ? -1 : 1));
 
       const embed = new MessageEmbed();
       embed.title = 'Top 5 Rated Users';

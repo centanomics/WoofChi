@@ -31,6 +31,10 @@ const intents = [
   'GUILD_MESSAGE_REACTIONS',
 ];
 
+// const client = new Discord.Client({
+//   intents: intents,
+//   ws: { intents: intents },
+// });
 const client = new Discord.Client();
 const prefix = ']';
 
