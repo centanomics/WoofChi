@@ -49,7 +49,7 @@ module.exports = {
           userRatings[i].user
         );
         embed.addField(
-          `${i + 1} ${targetUser.nickname}`,
+          `${i + 1} ${targetUser.nickname || targetUser.user.username}`,
           `Rating: ${userRatings[i].avg}`
         );
       }

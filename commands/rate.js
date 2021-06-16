@@ -91,7 +91,9 @@ module.exports = {
 
       const targetUser = await message.guild.members.fetch(ratedUser);
       message.channel.send(
-        `${targetUser.nickname} is now rated ${avgRatings} stars`
+        `${
+          targetUser.nickname || targetUser.user.username
+        } is now rated ${avgRatings} stars`
       );
     } catch (err) {
       console.log(err.message);
