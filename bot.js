@@ -86,17 +86,6 @@ const guildsRouter = require('./routes/guilds')(client);
 
 app.use('/api/guilds', guildsRouter);
 
-// sends back guild name
-app.get('/json/:guildId', async (req, res) => {
-  let guild = await client.guilds.fetch(req.params.guildId);
-  res.json({ guildName: guild.name });
-});
-
-// sends back list of all users with a rating in order
-app.get('/api/getRatings', async (req, res) => {
-  res.json({ guildMembers: 'lol' });
-});
-
 app.listen(port, () => {
   console.log(`Birbit listening on port ${port}`);
 });
