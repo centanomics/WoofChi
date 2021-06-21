@@ -88,6 +88,11 @@ app.get('/json/:guildId', async (req, res) => {
   res.json({ guildName: guild.name });
 });
 
+// sends back list of all users with a rating in order
+app.get('/api/getRatings', async (req, res) => {
+  res.json({ guildMembers: 'lol' });
+});
+
 app.listen(port, () => {
   console.log(`Birbit listening on port ${port}`);
 });
