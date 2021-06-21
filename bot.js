@@ -82,6 +82,10 @@ client.on('message', (message) => {
 
 // api routes
 
+const guildsRouter = require('./routes/guilds')(client);
+
+app.use('/api/guilds', guildsRouter);
+
 // sends back guild name
 app.get('/json/:guildId', async (req, res) => {
   let guild = await client.guilds.fetch(req.params.guildId);
