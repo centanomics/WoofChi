@@ -45,7 +45,7 @@ connectDB();
 client.on('ready', () => {
   console.log('Woofchi is ready!');
   client.user.setPresence({
-    status: 'online', //You can show online, idle....
+    status: 'dnd', //You can show online, idle....
     activity: {
       name: ']help', //The message shown
       type: 'PLAYING', //PLAYING: WATCHING: LISTENING: STREAMING:
