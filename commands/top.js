@@ -51,6 +51,12 @@ module.exports = {
           `Rating: ${userRatings[i].avg}`
         );
       }
+      embed.addField(
+        '\u200B',
+        `[See more stats here!](${
+          process.env.SITE || 'http://localhost:3000'
+        }/guild?g=${message.guild.id})`
+      );
       message.channel.send({ embed: embed });
     } catch (err) {
       console.log(err.message);
