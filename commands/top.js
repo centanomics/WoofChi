@@ -3,11 +3,11 @@ const avgRating = require('../utils/avgRating');
 const { MessageEmbed } = require('discord.js');
 
 // @command     top
-// @desc        gets top 5
+// @desc        gets top 5 with a link to the entire list
 // @access      all
 module.exports = {
   name: 'top',
-  description: 'gets top 5',
+  description: 'gets top 5 with a link to the entire list',
   delay: 5000,
   mod: false,
   execute: async (message, args) => {
