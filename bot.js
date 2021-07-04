@@ -61,6 +61,7 @@ client.on('message', (message) => {
   const args = message.content.slice(prefix.length).split(/ +/);
   const command = args.shift().toLowerCase();
 
+  // list of commands and a fallback
   switch (command) {
     case 'rate':
       rate.execute(message, args);
