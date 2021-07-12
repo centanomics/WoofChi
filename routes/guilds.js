@@ -54,7 +54,9 @@ router.get('/ratings/:guildId', async (req, res) => {
 });
 
 // gets a users information for display
-router.get('/guildMember');
+router.get('/guildMember', async (req, res) => {
+  res.send('Get user info');
+});
 
 module.exports = (client) => {
   discClient = client;
