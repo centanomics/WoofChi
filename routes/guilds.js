@@ -58,6 +58,7 @@ router.get('/guildMember', async (req, res) => {
   res.send('Get user info');
 });
 
+// grabs client from the botjs file
 module.exports = (client) => {
   discClient = client;
   return router;
