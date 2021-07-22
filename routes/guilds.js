@@ -54,9 +54,9 @@ router.get('/ratings/:guildId', async (req, res) => {
 });
 
 // gets a users information for display
-router.get('/guildMember', async (req, res) => {
-  res.send('Get user info, like user name, profile pic, nickname, etc');
-});
+// router.get('/guildMember', async (req, res) => {
+//   res.send('Get user info, like user name, profile pic, nickname, etc');
+// });
 
 // grabs client from the botjs file
 module.exports = (client) => {

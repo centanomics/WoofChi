@@ -88,5 +88,5 @@ const guildsRouter = require('./routes/guilds')(client);
 app.use('/api/guilds', guildsRouter);
 
 app.listen(port, () => {
-  console.log(`Birbit listening on port ${port}`);
+  console.log(`Woofchi listening on port ${port}`);
 });
