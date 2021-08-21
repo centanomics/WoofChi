@@ -34,6 +34,7 @@ router.get('/ratings/:guildId', async (req, res) => {
       }
     }
 
+    //adds relevant info to each userRatings object
     for (let i = 0; i < userRatings.length; i++) {
       const targetUser = await guild.members.fetch(userRatings[i].user);
 
