@@ -5,7 +5,7 @@ const avgRating = require('../utils/avgRating');
 
 let discClient;
 
-// gets basic guild info for home page
+// gets basic guild info for home pag
 router.get('/guildName/:guildId', async (req, res) => {
   let guild = await discClient.guilds.fetch(req.params.guildId);
   res.send(guild.name);
