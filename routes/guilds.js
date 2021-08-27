@@ -1,3 +1,4 @@
+// imports
 const router = require('express').Router();
 
 const Ratings = require('../models/ratings');
