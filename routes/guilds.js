@@ -26,6 +26,7 @@ router.get('/ratings/:guildId', async (req, res) => {
 
     const userRatings = [];
 
+    //compiles all the ratings to their users
     for (let i = 0; i < allRatedUsers.length; i++) {
       userRatings.push({ user: allRatedUsers[i], ratings: [], avg: null });
       for (let j = 0; j < allRatings.length; j++) {
